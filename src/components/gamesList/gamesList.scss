@@ -1,0 +1,16 @@
+.games-list {
+	display: grid;
+	grid-template-columns: repeat(3, 300px);
+	grid-template-rows: minmax(200,1fr);
+	gap: 50px;
+	justify-content: center;
+	img {
+		width: 100%;
+	}
+}
+
+.game {
+	&__title {
+		font-weight: 700;
+	}
+}
