@@ -27,8 +27,10 @@ function ListItem({ title, description, thumbnail }) {
 	return (
 		<li className="games-list__item">
 			<img src={thumbnail} alt="Ragnarok Online" />
-			<div className="game__title">{title}</div>
-			<div className="game__descr">{description}</div>
+			<div className="game__text">
+				<div className="game__title">{title}</div>
+				<div className="game__descr">{description}</div>
+			</div>
 		</li>
 	)
 }

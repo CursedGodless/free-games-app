@@ -1,16 +1,30 @@
 .games-list {
+	margin-top: 50px;
 	display: grid;
 	grid-template-columns: repeat(3, 300px);
-	grid-template-rows: minmax(200,1fr);
+	grid-template-rows: minmax(200px, 1fr);
 	gap: 50px;
 	justify-content: center;
 	img {
 		width: 100%;
+	}
+	&__item {
+		border-radius: 15px;
+		box-shadow: 0px 0px 13px 0px grey;
+		overflow: hidden;
 	}
 }
 
 .game {
 	&__title {
 		font-weight: 700;
+		letter-spacing: 0.5px;
+	}
+	&__text {
+		padding: 10px;
+	}
+
+	&__descr {
+		margin-top: 5px;
 	}
 }

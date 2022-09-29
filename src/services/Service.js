@@ -14,11 +14,23 @@ export default class Service {
 		})
 	}
 
+	getData = (url) => {
+		return fetch(url, this.options)
+			.then(response => {
+				return response.json()
+			})
+	}
+
 	getAllGames = async (limit, offset) => {
-		let response = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', this.options)
-			.then(response => response.json())
+		let response = await this.getData('https://free-to-play-games-database.p.rapidapi.com/api/games')
 			.then(data => data.slice(0, offset))
 		return response.map(item => this.transformData(item));
+	}
+
+	getRandomGame = async () => {
+		let response = await this.getData('https://free-to-play-games-database.p.rapidapi.com/api/games')
+		let rnd = Math.floor(Math.random() * (response.length + 1))
+		return this.transformData(response[rnd])
 	}
 
 	transformData = ({ title, short_description: description, id, thumbnail }) => {
