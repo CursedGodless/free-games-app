@@ -1,6 +1,6 @@
 .random-game {
 	width: 100%;
-	min-height: 150px;
+	min-height: 155px;
 	display: flex;
 	justify-content: space-between;
 	border-radius: 0 0 15px 15px;
@@ -41,6 +41,7 @@
 	grid-template-columns: 200px 1fr;
 	column-gap: 15px;
 	padding: 20px;
+	position: relative;
 	img {
 		max-width: 200px;
 	}

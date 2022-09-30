@@ -1,0 +1,27 @@
+.filters {
+	margin-top: 30px;
+	display: flex;
+justify-content: space-between;
+	&__inputs {
+	}
+	&__btns {
+		height: 50px;
+		display: flex;
+		width: 75px;
+		display: flex;
+		justify-content: space-between;
+		label > input {
+			visibility: hidden; /* Makes input not-clickable */
+			position: absolute;
+		}
+		label > input + i {
+			/* IMAGE STYLES */
+			cursor: pointer;
+			font-size: 20px;
+		}
+		label > input:checked + i {
+			/* (RADIO CHECKED) IMAGE STYLES */
+			color: rgb(84, 128, 224);
+		}
+	}
+}
