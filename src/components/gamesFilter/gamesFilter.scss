@@ -1,7 +1,9 @@
+@import "../../scss/media";
+
 .filters {
 	margin-top: 30px;
 	display: flex;
-justify-content: space-between;
+	justify-content: space-between;
 	&__inputs {
 	}
 	&__btns {
@@ -23,5 +25,16 @@ justify-content: space-between;
 			/* (RADIO CHECKED) IMAGE STYLES */
 			color: rgb(84, 128, 224);
 		}
+	}
+}
+
+
+
+@media (max-width: 650px) {
+	.filters {
+		display: none;
+	}
+	.games-list {
+		margin-top: 30px;
 	}
 }

@@ -29,10 +29,10 @@ export default class GamesList extends Component {
 		return (
 			<>
 				<div className="container">
-					<GamesFilter/>
+					<GamesFilter />
+					{spinner}
+					{errorMessage}
 					<ul className="games-list">
-						{spinner}
-						{errorMessage}
 						{visibleData}
 					</ul>
 				</div>

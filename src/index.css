@@ -24,3 +24,5 @@ code {
 	margin: 0 auto;
 	padding: 0 10px;
 }
+
+@import url('./scss/_media.scss');
