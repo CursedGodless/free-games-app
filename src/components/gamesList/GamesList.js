@@ -10,12 +10,27 @@ export default class GamesList extends Component {
 		loading: true,
 		error: false
 	}
+	offset = 0;
+	limit = 9;
 	service = new Service();
 
-	componentDidMount() {
-		this.service.getAllGames(0, 9)
-			.then(games => this.setState({ games, loading: false }))
+	loadGames = () => {
+		this.service.getAllGames(this.offset, this.limit)
+			.then(nextGames => {
+				this.setState(({ games }) => {
+					return {
+						games: [...games, ...nextGames]
+						, loading: false
+					}
+				})
+			})
 			.catch(err => this.setState({ loading: false, error: true }))
+		this.offset += 9;
+		this.limit += 9;
+	}
+
+	componentDidMount() {
+		this.loadGames();
 	}
 
 	render() {
@@ -35,6 +50,7 @@ export default class GamesList extends Component {
 					<ul className="games-list">
 						{visibleData}
 					</ul>
+					<button onClick={this.loadGames} className='btn btn_load-more'>Load more</button>
 				</div>
 			</>
 		)

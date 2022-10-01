@@ -12,6 +12,7 @@ export default class Service {
 			writable: false,
 			configurable: false
 		})
+		this.games = [];
 	}
 
 	getData = (url) => {
@@ -21,16 +22,21 @@ export default class Service {
 			})
 	}
 
-	getAllGames = async (limit, offset) => {
-		let response = await this.getData('https://free-to-play-games-database.p.rapidapi.com/api/games')
-			.then(data => data.slice(0, offset))
-		return response.map(item => this.transformData(item));
+	getAllGames = async (offset, limit = 9 ) => {
+		if (!this.games.length) {
+			let response = await this.getData('https://free-to-play-games-database.p.rapidapi.com/api/games')
+			this.games = response.map(item => this.transformData(item));
+		}
+		return this.games.slice(offset, limit);
 	}
 
 	getRandomGame = async () => {
-		let response = await this.getData('https://free-to-play-games-database.p.rapidapi.com/api/games')
-		let rnd = Math.floor(Math.random() * (response.length + 1))
-		return this.transformData(response[rnd])
+		if (!this.games.length) {
+			let response = await this.getData('https://free-to-play-games-database.p.rapidapi.com/api/games')
+			this.games = response.map(item => this.transformData(item));
+		}
+		let rnd = Math.floor(Math.random() * (this.games.length + 1))
+		return this.games[rnd]
 	}
 
 	transformData = ({ title, short_description: description, id, thumbnail }) => {

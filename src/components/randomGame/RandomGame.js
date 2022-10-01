@@ -39,7 +39,7 @@ export default class RandomGame extends Component {
 	})
 
 	updateGame = () => {
-		this.setState({ loading: true,error:false })
+		this.setState({ loading: true, error: false })
 		this.service.getRandomGame()
 			.then(game => this.setState({ game, loading: false }))
 			.catch(err => this.setState({ error: true, loading: false }))
@@ -71,7 +71,7 @@ export default class RandomGame extends Component {
 					{visibleData}
 					<div className='static'>
 						<div>Wanna new random game?</div>
-						<button onClick={this.updateGame}>Click me</button>
+						<button onClick={this.updateGame} className='btn'>Click me</button>
 					</div>
 				</div>
 			</div>

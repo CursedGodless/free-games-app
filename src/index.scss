@@ -26,3 +26,21 @@ code {
 }
 
 @import url('./scss/_media.scss');
+
+.btn {
+		height: 30px;
+		width: 100px;
+		align-self: center;
+		border: none;
+		border-radius: 5px;
+		font-weight: 500;
+		margin-left: 50px;
+		cursor: pointer;
+		display: block;
+		&_load-more {
+			margin: 0 auto;
+			background-color: rgb(88, 70, 70);
+			margin-bottom: 50px;
+			color: #fff;
+		}
+}
