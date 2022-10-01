@@ -10,8 +10,8 @@ export default class GamesList extends Component {
 		loading: true,
 		error: false
 	}
-	offset = 0;
-	limit = 9;
+	offset = 300;
+	limit = 309;
 	service = new Service();
 
 	loadGames = () => {
@@ -25,6 +25,11 @@ export default class GamesList extends Component {
 				})
 			})
 			.catch(err => this.setState({ loading: false, error: true }))
+			.then(() => {
+				if (this.state.games.length % 9) {
+					document.querySelector('.btn_load-more').style.display = 'none';
+				}
+			})
 		this.offset += 9;
 		this.limit += 9;
 	}
